@@ -1,4 +1,4 @@
-# mail_project
+# mallpro
 
 ## Project setup
 ```
