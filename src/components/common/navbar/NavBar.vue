@@ -19,11 +19,11 @@
   }
 </script>
 
-<style>
+<style scoped='scoped'>
   .navbar {
     display: flex;
     height: 44px;
-    background-color: pink;
+   
     box-shadow: 0px 2px 11px 1px #ccc;
   }
   .left , .right {

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    
-    <router-view/>
+    <keep-alive exclude="Detail">
+      <router-view></router-view>
+    </keep-alive>
+
     <MainTabBar></MainTabBar>
 
   </div>
@@ -10,7 +12,7 @@
 
 <script>
    import MainTabBar from './components/content/maintabbar/MainTabBar.vue'
-  
+
    export default {
    	name: 'App',
    	components: {

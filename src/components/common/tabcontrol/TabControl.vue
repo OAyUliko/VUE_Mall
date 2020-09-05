@@ -32,7 +32,7 @@
   }
 </script>
 
-<style>
+<style scoped="">
   .tabcontrol {
     height: 50px;
     display: flex;

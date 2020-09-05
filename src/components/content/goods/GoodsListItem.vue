@@ -1,10 +1,10 @@
 <template>
-  <div class="goodslistitem">
-    <a :href='goodsitem.link'>
-      <img :src='goodsitem.show.img'>
+  <div class="goodslistitem" @click="gotodetail">
+    <a>
+      <img :src='goodsitemimg' @load="imgload">
       <div class="declear">
         <p>{{goodsitem.title}}</p>
-        <span class='price'>{{goodsitem.orgPrice}}</span>
+        <span class='price'>￥{{goodsitemprice}}</span>
         <span class='collect'>{{goodsitem.cfav}}</span>
       </div>
     </a>
@@ -21,12 +21,28 @@
           return {}
         }
       }
+    },
+    computed:{
+      goodsitemimg(){
+        return this.goodsitem.image || this.goodsitem.show.img
+      },
+      goodsitemprice(){
+        return this.goodsitem.discountPrice || this.goodsitem.orgPrice
+      },
+    },
+    methods:{
+      imgload(){
+        this.$bus.$emit('imgload')
+      },
+      gotodetail(){
+        this.$router.push('/detail/'+this.goodsitem.iid);
+      }
     }
 
   }
 </script>
 
-<style>
+<style scoped>
   .goodslistitem {
     width: 48%;
     height: 350px;

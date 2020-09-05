@@ -13,12 +13,12 @@
 
 <style>
   .top {
-    display: ;
+
     position: fixed;
     bottom: 60px;
     right: 20px;
     height: 40px;
     width: 40px;
-    z-index: 3;
+    z-index: 4;
   }
 </style>

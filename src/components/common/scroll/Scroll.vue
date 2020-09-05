@@ -13,7 +13,6 @@
     data(){
       return {
         bs:null,
-
       }
 
     },
@@ -38,11 +37,19 @@
       //2.进行监听 把实时移动的高度传给父组件 一句高度来显示 【返回顶部】 图标
       this.bs.on('scroll',(position) => {
         this.$emit('gototop',position);
+       
       })
       //3.监听上拉事件 加载更多
+      if(this.pullUpLoad){
       this.bs.on('pullingUp',() => {
         this.$emit('pullingUp');
-      })
+      })}
+    },
+    methods:{
+      refresh(){
+        console.log('组件refresh一次');
+        this.bs && this.bs.refresh();
+      }
     }
     }
 </script>
