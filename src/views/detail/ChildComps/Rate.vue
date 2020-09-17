@@ -50,6 +50,7 @@
     border-bottom: 6px solid #ececec;
   }
   .rate .top {
+    width: 100%;
     height: 40px;
     line-height: 40px;
     text-align: center;

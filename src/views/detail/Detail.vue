@@ -1,17 +1,17 @@
 <template>
   <div class="detail">
     <DetailNavBar class='home_bar' @spanclick='spanclick' ref='detailnavbar'></DetailNavBar>
- <div>{{$store.state.CarList}}</div>
-   <!-- <Sroll class="detaiilscroll" ref='scroll' @gototop='detailscroll' :probeType='3'>
+
+   <Sroll class="detaiilscroll" ref='scroll' @gototop='detailscroll' :probeType='3'>
 
       <DetailSwiper v-bind:cbanners='banners'></DetailSwiper>
       <DetailInfo v-bind:cgoods='goods'></DetailInfo>
       <ShopInfo v-bind:cshops='shops'></ShopInfo>
-      <Rate v-bind:crates='rates' ref='rate'></Rate>
-      <DetailImageInfo v-bind:cdetails='imageinfo' @detailimgload='detailimgload'></DetailImageInfo>
+      <Rate v-bind:crates='rates' ref='rate' class='rate'></Rate>
+   <DetailImageInfo v-bind:cdetails='imageinfo' @detailimgload='detailimgload'></DetailImageInfo>
       <Params v-bind:cparams='params' ref='params'></Params>
       <GoodsList v-bind:goods='recommends' ref='recommends'></GoodsList>
-    </Sroll> -->
+    </Sroll>
     <BackTop @click.native='backtotop' v-show='imgisshow'></BackTop>
     <BottomNavBar @addCar='addCar'></BottomNavBar>
 
@@ -215,16 +215,17 @@
         ProductInfo.desc = this.goods.desc;
         ProductInfo.price = this.goods.newPrice;
         ProductInfo.iid = this.iid;
-      
+        ProductInfo.checked = true;
+
         //2.添加到购物车
-        this.$store.dispatch('addCar',ProductInfo);
+        this.$store.dispatch('addCar',ProductInfo).then(
+            res => {
+              console.log(res)//3.加入购物车成功提示 上面的dispatch会返回promise对象
+            }
+        );
 
-
+        
       }
-
-
-
-
     }
   }
 </script>
@@ -246,4 +247,5 @@
     background-color: white;
 
   }
+
 </style>

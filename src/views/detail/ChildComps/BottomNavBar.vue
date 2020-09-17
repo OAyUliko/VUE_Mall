@@ -1,36 +1,36 @@
 <template>
   <div class="bottomnavbar">
-   <div class="bar-item bar-left">
-     <div>
-       <i class="icon service"></i>
-       <span class="text">客服</span>
-     </div>
-     <div>
-       <i class="icon shop"></i>
-       <span class="text">店铺</span>
-     </div>
-     <div>
-       <i class="icon select"></i>
-       <span class="text">收藏</span>
-     </div>
-   </div>
-   <div class="bar-item bar-right">
-     <div class="cart" @click="addCar">加入购物车</div>
-     <div class="buy">购买</div>
-   </div>
+    <div class="bar-item bar-left">
+      <div>
+        <i class="icon service"></i>
+        <span class="text">客服</span>
+      </div>
+      <div>
+        <i class="icon shop"></i>
+        <span class="text">店铺</span>
+      </div>
+      <div>
+        <i class="icon select"></i>
+        <span class="text">收藏</span>
+      </div>
+    </div>
+    <div class="bar-item bar-right">
+      <div class="cart" @click="addCar">加入购物车</div>
+      <div class="buy">购买</div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
     name: 'BottomNavBar',
-    data(){
+    data() {
       return {
 
       }
     },
-    methods:{
-      addCar(){
+    methods: {
+      addCar() {
         this.$emit('addCar')
       }
     }
@@ -41,12 +41,13 @@
 
 <style scoped>
   .bottomnavbar {
-    position: relative;
-  display: flex;
+    position: fixed;
+    display: flex;
     height: 58px;
-    background-color:#fff;
+    background-color: #fff;
     z-index: 99;
-     text-align: center;
+    text-align: center;
+    width: 100%;
   }
 
   .bar-item {
@@ -72,11 +73,11 @@
   }
 
   .bar-left .service {
-    background-position:0 -54px;
+    background-position: 0 -54px;
   }
 
   .bar-left .shop {
-    background-position:0 -98px;
+    background-position: 0 -98px;
   }
 
   .bar-right {
